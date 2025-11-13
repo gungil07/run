@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+ <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+    
+
+
   <title>Sooyoungn Kim, PhD</title>
 <!--AAV maps Nov3 2025 -->
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -115,6 +121,56 @@
         margin-top: 0;
       }
 
+       /* graphs */
+      .graph-container {
+        display: flex;
+        flex-wrap: wrap; /* allow wrapping on small screens */
+        justify-content: space-between;
+        gap: 2 px; /* space between graphs */
+        align-items: flex-start; /* aligns images by top */
+        margin-top: 30px;
+      }
+
+      .graph-container img {
+          height: 250px;      /* roughly 3 graphs in a row on desktop */
+          width: auto;
+          cursor: pointer; /* indicate clickable */
+          border: 1px solid #ccc;
+          border-radius: 5px;
+          box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+          transition: transform 0.2s;
+      }
+
+      .graph-container img:hover {
+      transform: scale(1.03);
+    }
+
+
+      @media (max-width: 768px) { /* mobile screens */
+          .graph-container {
+              flex-direction: column; /* stack images vertically */
+              align-items: center;
+          }
+
+
+          .graph-container img {
+              margin-bottom: 20px;
+          }
+      }
+
+      /*zoom*/
+      .graph-container img {
+          height: 250px;
+          width: auto;
+          transition: transform 0.3s ease;
+}
+
+      .graph-container img:hover {
+          transform: scale(1.5); /* zoom 1.5x */
+          z-index: 10;
+          position: relative;
+}
+
   </style>
 </head>
 <body>
@@ -140,11 +196,35 @@
 </p>
 <hr class="map-line">
  
-   
+
+
+  <div class="graph-container">
+        <a href="graphs/approvalnumber.png" class="glightbox">
+            <img src="graphs/approvalnumber.png" alt="AAV Serotype Distribution">
+        </a>
+
+        <a href="graphs/AAV_serotype_distribution.png" class="glightbox">
+            <img src="graphs/AAV_serotype_distribution.png" alt="Approvals per Year">
+        </a>
+        <a href="graphs/Primary_target_tissues.png" class="glightbox">
+            <img src="graphs/Primary_target_tissues.png" alt="Primary Target Tissues">
+        </a>
+        
+    </div>
+
+
+
     </main>
   <footer>
     <p>© 2025 Sooyoung · Hosted with GitHub Pages</p>
   </footer>
+
+    <!-- Lightbox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const lightbox = GLightbox();
+    </script>
+
 </body>
 </html>
 
