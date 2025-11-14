@@ -121,6 +121,12 @@
         margin-top: 0;
       }
 
+      #map {
+       width: 100%;       /* always full width of parent */
+       height: 50vh;      /* 50% of viewport height, adjust as needed */
+       max-height: 400px; /* optional: limit max height */
+       }
+
        /* graphs */
       .graph-container {
         display: flex;
@@ -162,6 +168,10 @@
               max-width: 400px;
               height: auto;
           }
+
+          #map {
+             height: 40vh;    /* smaller height on small phones */
+            }
       }
 
       
